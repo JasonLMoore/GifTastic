@@ -6,23 +6,34 @@
     <title>GifTastic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/javascript/scripts.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h2>GifBall!</h2>
-        <div id="buttons-view"></div>
-
-        <form id="gif-form">
-            <label for="gif-input">Add a button!</label>
-            <input type="text" id="gif-input"><br>
-          
-                
-            <input id="add-gif" type="submit" value="Add a button!">
-        </form>
+    <div class="container" id="main-container">
+        
+        <div class="jumbotron">
+            <h2>GifBall!</h2>
+            <p class="lead">Click one of the buttons to get hilarious gifs about the worlds best sport, Basketball!</p>
+            <hr class="my1">
+            <div id="buttons-view"></div>
+            <hr class="my2">
+            <form id="gif-form">
+                <p>If you can't find what you need, try adding your own button!</p>
+                <input type="text" id="gif-input"><br>
+                <input id="add-gif" type="submit" value="Add a button!">
+            </form>
+        </div>
+        
+        <div class="row" id=gif-container></div>
+        
     </div>
     
+    
+        
+    
+    
 </body>
+<script src="assets/javascript/scripts.js"></script>
 </html>
