@@ -1,4 +1,4 @@
-var topics = ["Kansas Jayhawks", "NBA", "College Basketball", "Basketball Referees", "Insane Basketball Fans", "Monster Dunks", "Basketball Mascots"];
+var topics = ["Kansas Jayhawks", "NBA", "College Basketball", "Basketball Referees", "Basketball Fans", "Slam Dunk", "Basketball Mascots"];
 
 function displayGifs() {
     var topic = $(this).attr("data-topic");
