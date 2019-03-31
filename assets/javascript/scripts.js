@@ -1,31 +1,12 @@
-var topics = ["Kansas Jayhawks", "NBA", "College Basketball", "Referees", "Insane Fans", "Monster Dunks", "Mascots"];
+var topics = ["Kansas Jayhawks", "NBA", "College Basketball", "Basketball Referees", "Insane Basketball Fans", "Monster Dunks", "Basketball Mascots"];
 
-
-function renderButtons() {
-    $("#buttons-view").empty();
-    
-    for (b=0; b < topics.length; b++) {
-        var bttn = $("<button>");
-        bttn.addClass("topic");
-        bttn.attr("data-topic", topics[b]);
-        bttn.text(topics[b]);
-        $("#buttons-view").append(bttn);
-    }
-    
-};
-renderButtons();
-
-
-$("#add-gif").on("click", function(event) {
-    event.preventDefault();
-    var topic = $("#gif-input").val().trim();
-    topics.push(topic);
-    renderButtons();
-    console.log(topics)
-});
-
-$("button").on("click", function() {
+function displayGifs() {
+    console.log("click start")
+    console.log("//////////////////////")
+    console.log($(this));
     var topic = $(this).attr("data-topic");
+    console.log("//////////////////////")
+    console.log(topic);
     
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=shNxgbRQV8gE0hvyjnnSdqG6le4hI2jT&q=" + topic + "&limit=10";
     
@@ -33,7 +14,9 @@ $("button").on("click", function() {
         url: queryURL,
         method: "GET"
     }) .then(function(response) {
+        console.log("|||||||||||||||")
         console.log(queryURL);
+        console.log("|||||||||||||||")
         console.log(response);
         var results = response.data;
         
@@ -48,9 +31,46 @@ $("button").on("click", function() {
             topicDiv.append(topicGif);
             $("#gif-container").prepend(topicDiv);
         }
+        console.log("click end");
     });
+};
+
+function renderButtons() {
+    $("#buttons-view").empty();
+    console.log("<<<<<<>>>>>>");
+    console.log(topics);
     
-    
-    
-    
+    for (b=0; b < topics.length; b++) {
+        var bttn = $("<button>");
+        bttn.addClass("topicBttn");
+        bttn.attr("data-topic", topics[b]);
+        bttn.text(topics[b]);
+        $("#buttons-view").append(bttn);
+        console.log("<<<<<<>>>>>>");
+        console.log(bttn.attr("data-topic"));
+    }
+};
+
+
+
+
+$("#add-gif").on("click", function(event) {
+    event.preventDefault();
+    var newTopic = $("#gif-input").val().trim();
+    topics.push(newTopic);
+    console.log("---------------")
+    console.log($("#gif-input"));
+    $("#gif-input").empty();
+    renderButtons();
 });
+
+$(document).on("click", ".topicBttn", displayGifs);
+renderButtons();
+
+    
+
+
+
+
+
+
