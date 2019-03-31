@@ -19,7 +19,6 @@ function displayGifs() {
             
             var topicGif = $("<img>");
             topicGif.attr("src", results[i].images.fixed_height_still.url);
-            //Puase and unpause//
             topicGif.attr("data-still", results[i].images.fixed_height_still.url);
             topicGif.attr("data-animate", results[i].images.fixed_height.url);
             topicGif.attr("data-state", "still");
@@ -27,10 +26,7 @@ function displayGifs() {
             topicDiv.append(p);
             topicDiv.append(topicGif);
             $("#gif-container").prepend(topicDiv);
-            //////////
-            console.log("////////////")
-            console.log(topicGif);
-            ///////////
+            
         }
     });
 };
@@ -62,8 +58,6 @@ function renderButtons() {
        
     }
 };
-    
-
 
 
 
@@ -71,15 +65,17 @@ $("#add-gif").on("click", function(event) {
     event.preventDefault();
     var newTopic = $("#gif-input").val().trim();
     topics.push(newTopic);
-    //Bug: Will not empty after button is clicked//
-    $("#gif-input").empty();
-    ///////////////////////////////////////////////
     renderButtons();
+    document.getElementById("gif-input").value = "";
 });
 
 $(document).on("click", ".topicBttn", displayGifs);
 $(document).on("click", ".bballGif", pauseUnpause);
 renderButtons();
+
+
+
+
 
     
 
